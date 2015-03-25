@@ -21,6 +21,8 @@ function init_map(){
 	}).setView( [ 32.78, -96.8 ], 11 );
 	L.tileLayer( tileAddress ).addTo( map );
 	
+	var url_parameter_id = gup( 'id' );
+	
 	var layerStyle = L.geoJson( null, {
 		style : function( feature ) {
 			return { 
@@ -34,6 +36,11 @@ function init_map(){
 				mouseout : resetHighlight,
 				click : featureClick
 			});
+			
+			if( url_parameter_id == feature.properties.id ) {
+				layer.fire( 'click' );
+				map.fitBounds( layer.getBounds() );
+			}
     	}
 	});
 	
