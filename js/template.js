@@ -35,7 +35,7 @@ var template = [
 				"format" : "<p><a href='http://||data||' target='_blank'>Website</a></p>"
 			}
 		],
-		"footer" : "</div>"
+		"footer" : "<p><a href='https://docs.google.com/forms/d/1bW0rMDHK-k-T8E0KrcMvd2b2sqLPR9Uvg1BcwtX-_wA/viewform'>Correct Neighborhood Organization information</a></p></div>"
 	},
 	{
 		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
