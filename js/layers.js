@@ -7,7 +7,7 @@ var overlays;
 		},
 		{
 			"table" : "school_districts",
-			"name" : "School Districts",
+			"name" : "Attendance Zones",
 			"default": false
 		},
 		{
