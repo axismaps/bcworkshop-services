@@ -174,7 +174,15 @@ function init_events(){
 		if( map.getZoom() + 1 >= map.getMaxZoom() ) $( "#zoom-in" ).addClass( "disabled" );
 		$( "#zoom-out" ).removeClass( "disabled" );
 	});
+	
 	keyboard_events();
+	
+	//Updates port in download link
+	$( "a#download" )
+	  .attr( "href", window.location.origin + ":3000/download" )
+	  .click( function() {
+  	    $( '#terms-and-conditions' ).modal('hide')
+	  });
 }
 
 function init_names() {
