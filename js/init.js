@@ -181,7 +181,11 @@ function init_events(){
 	$( "a#download" )
 	  .attr( "href", window.location.origin + ":3000/download" )
 	  .click( function() {
-  	    $( '#terms-and-conditions' ).modal('hide')
+  	    $( '#terms-and-conditions' ).modal( 'hide' );
+  	    
+  	    setTimeout( function() {
+    	    $( '#download-feedback' ).modal( 'show' );
+    	   }, 1000 );
 	  });
 }
 
