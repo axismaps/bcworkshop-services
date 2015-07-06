@@ -38,13 +38,17 @@ var template = [
 		"footer" : "<p><a href='https://docs.google.com/forms/d/1bW0rMDHK-k-T8E0KrcMvd2b2sqLPR9Uvg1BcwtX-_wA/viewform' target='_blank'>Submit a change to this information</a></p></div>"
 	},
 	{
-		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' THEN SUBSTRING(link FROM 19) END AS video, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
+		"query" : "SELECT neighborhoods.id, type, CASE WHEN type='video' AND SUBSTRING(link FROM 9 for 5)='vimeo' THEN SUBSTRING(link FROM 19) END AS vimeo, CASE WHEN type='video' AND SUBSTRING(link FROM 9 for 5)='youtu' THEN SUBSTRING(link FROM 18) END AS youtube, CASE WHEN type='doc' THEN link END AS doc FROM resources INNER JOIN neighborhoods ON neighborhoods.id = neighborhood",
 		"header" : "<div><h3><i class='fa fa-institution'></i> Neighborhood Stories</h3>",
 		"style" : [
 			{
-				"data" : "video",
+				"data" : "vimeo",
 				"format" : '<iframe src="//player.vimeo.com/video/||data||" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 			},
+      {
+        "data" : "youtube",
+        "format" : '<iframe src="http://www.youtube.com/embed/||data||" type="text/html" width="250" height="140" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+      },
 			{
 				"data" : "doc",
 				"format" : "<p><b><a href=||data||>Neighborhood Story</a></b></p>"
