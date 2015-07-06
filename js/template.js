@@ -86,7 +86,7 @@ var template = [
 			},
 			{
 				"data" : "renter2013",
-				"format" : "<tr><td>Render Occupied</td><td>||data||</td></tr>"
+				"format" : "<tr><td>Renter Occupied</td><td>||data||</td></tr>"
 			},
 			{
 				"data" : "vacant2013",
@@ -101,7 +101,7 @@ var template = [
 		"style" : [
 			{
 				"data" : "council",
-				"format" : "<p><a href=\"http://dallascityhall.com/government/citycouncil/district||data||/Pages/default.aspx\"><b>City Council District ||data||</b></a></p>"
+				"format" : "<p><a href=\"http://dallascityhall.com/government/citycouncil/district||data||/Pages/default.aspx\" target=\"_blank\"><b>City Council District ||data||</b></a></p>"
 			},
 			{
 				"data" : "councilper",
