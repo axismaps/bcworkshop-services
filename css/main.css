@@ -90,3 +90,10 @@ header, #map{
 .fixfixed{
 	position: absolute;
 }
+
+.axis{
+  width: 30px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
