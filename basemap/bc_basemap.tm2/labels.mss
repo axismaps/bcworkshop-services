@@ -117,6 +117,10 @@
     text-fill: @text;
     text-size: 20;
   } 
+  [name='Dallas'] {
+    text-transform: uppercase;
+    text-face-name: @sans_bold;
+  }
 }
 
 // Mid priority place labels //
@@ -157,12 +161,14 @@
 
 // Road labels
 #road_label[len>2000][zoom>=12],
-#road_label[len>1000][zoom>=15] { 
+#road_label[len>1000][zoom>=15],
+#road_label[len>500][zoom>=16],
+#road_label[zoom>=17] { 
   text-placement: line;
   text-transform: uppercase;
   text-face-name: @sans;
   text-name: @name;
-  text-size: 9;
+  text-size: 10;
   text-min-distance: 100;
   text-halo-fill: @land;
   text-halo-radius: 1;
@@ -173,10 +179,10 @@
 // Water labels
 #marine_label { 
   text-name: @name;
-  text-face-name: @sans_bold;
-  text-fill: @text;
+  text-face-name: @sans_italic;
+  text-fill: darken(@fill4, 35%);
   text-size: 12;
-  text-halo-fill: @water;
+  text-halo-fill: @fill4;
   text-halo-radius: 1;
   text-wrap-before: true;
   text-wrap-width: 90;
@@ -191,10 +197,10 @@
   [zoom>=16][area>10000],
   [zoom>=17] {
     text-name: @name;
-    text-face-name: @sans_bold;
-    text-fill: @text;
+    text-face-name: @sans_italic;
+    text-fill: darken(@fill4, 35%);
     text-size: 12;
-    text-halo-fill: @water;
+    text-halo-fill: @fill4;
     text-halo-radius: 1;
     text-wrap-width: 60;
     text-wrap-before: true;
@@ -206,11 +212,11 @@
 #waterway_label[type='canal'][zoom>=14],
 #waterway_label[type='stream'][zoom>=15] { 
   text-name: @name;
-  text-face-name: @sans_bold;
-  text-fill: @text;
+  text-face-name: @sans_italic;
+  text-fill: darken(@fill4, 35%);
   text-min-distance: 60;
-  text-size: 10;
-  text-halo-fill: @water;
+  text-size: 11;
+  text-halo-fill: @fill4;
   text-halo-radius: 1;
   text-wrap-before: true;
   text-avoid-edges: true;
@@ -227,11 +233,16 @@
   text-face-name: @sans_bold;
   text-allow-overlap: false;
   text-name: @name;
-  text-size: 9;
+  text-size: 11;
   text-line-spacing: -2;
   text-min-distance: 50;
   text-wrap-width: 60;
   text-halo-fill: @land;
   text-halo-radius: 1;
   text-fill: @text;
+  
+  [maki='park'][scalerank<=2]{
+    text-halo-fill: mix(@land,@natural,90%);
+    text-fill: mix(@fill3,@natural,70%);
+  }
 }
